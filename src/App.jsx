@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import Tooltip from "@mui/material/Tooltip";
 
 function calculateWinner(squares) {
   const lines = [
@@ -24,7 +25,7 @@ function calculateWinner(squares) {
 function Square({ value, onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
-      {value}
+      <div className={value}>{value}</div>
     </button>
   );
 }
@@ -68,8 +69,14 @@ function Game() {
   const currentSquares = history[currentMove];
   const xIsNext = currentMove % 2 === 0;
 
-  function jumpTo(nextMove) {
-    setCurrentMove(nextMove);
+  function undo() {
+    if (currentMove == 0) return;
+    setCurrentMove(currentMove - 1);
+  }
+
+  function redo() {
+    if (currentMove == history.length - 1) return;
+    setCurrentMove(currentMove + 1);
   }
 
   function handlePlay(nextSquares) {
@@ -78,19 +85,6 @@ function Game() {
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }
-
-  const moves = history.map((squares, move) => {
-    let desc = "";
-
-    if (move > 0) desc = "Go to move # " + move;
-    else desc = "Go to game start";
-
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{desc}</button>
-      </li>
-    );
-  });
 
   return (
     <>
@@ -102,8 +96,17 @@ function Game() {
             onPlay={handlePlay}
           />
         </div>
-        <div className="game-info">
-          <ol>{moves}</ol>
+        <div className="undoRedo">
+          <Tooltip title={<h3>Undo</h3>}>
+            <button className="undo" onClick={undo}>
+              <span>&#9100;</span>
+            </button>
+          </Tooltip>
+          <Tooltip title={<h3>Redo</h3>}>
+            <button className="redo" onClick={redo}>
+              <span>&#9100;</span>
+            </button>
+          </Tooltip>
         </div>
       </div>
     </>
