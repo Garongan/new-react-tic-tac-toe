@@ -5,8 +5,8 @@
   - you can using undo and redo button
 
 # Screenshot
- [screencapture-garongan-github-io-new-react-tic-tac-toe-2023-09-04-11_16_33.png]
+ ![React tic tac toe Screenshot](screencapture-garongan-github-io-new-react-tic-tac-toe-2023-09-04-11_16_33.png)
 
 # Demo
-  link[https://garongan.github.io/new-react-tic-tac-toe]
+  [Demo link](https://garongan.github.io/new-react-tic-tac-toe)
 
