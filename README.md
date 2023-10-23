@@ -5,8 +5,10 @@
   - you can using undo and redo button
 
 # Screenshot
- ![React tic tac toe Screenshot](screencapture-garongan-github-io-new-react-tic-tac-toe-2023-09-04-11_16_33.png)
+ ![React tic tac toe](react-tictactoe-dekstop.webp)
+ ![React tic tac toe](react-tictactoe-tablet.webp)
+ ![React tic tac toe](react-tictactoe-mobile.webp)
 
 # Demo
-  [Demo link](https://garongan.github.io/new-react-tic-tac-toe)
+  [Demo link](https://new-react-tic-tac-toe.vercel.app/)
 
